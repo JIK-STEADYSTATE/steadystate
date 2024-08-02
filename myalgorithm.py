@@ -145,7 +145,7 @@ def algorithm(K, all_orders, all_riders, dist_mat, timelimit=60):
 
 
         sorted_all_bundles = sorted(all_bundles, key= lambda x : len(x.shop_seq), reverse= True)
-        all_riders = sorted(all_riders, key = lambda x: (x.fixed_cost,x.var_cost), reverse= True)
+        all_riders = sorted(all_riders, key = lambda x: (x.var_cost,x.fixed_cost), reverse= False)
         
         for bundle in sorted_all_bundles:
             new_rider = get_cheaper_available_riders(all_riders, bundle.rider, bundle)
